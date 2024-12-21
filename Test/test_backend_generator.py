@@ -6,7 +6,7 @@ import secrets
 from click.testing import CliRunner
 
 # Import the function from its new location
-from DJREACT.commands.backendGenerator import generate_backend
+from REACTDJBUILDER.commands.backendGenerator import generate_backend
 
 
 class TestGenerateBackend(unittest.TestCase):
