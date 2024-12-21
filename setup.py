@@ -9,7 +9,7 @@ setup(
     long_description_content_type="text/markdown",
     author="Daniel Agufenwa",
     author_email="devonaguh33@gmail.com",
-    url="https://github.com/daniel-devi/boilerplate-cli",
+    url="https://github.com/daniel-devi/DJREACT.git",
     packages=find_packages(),
     include_package_data=True,
     install_requires=[

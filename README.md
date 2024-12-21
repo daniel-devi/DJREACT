@@ -14,7 +14,6 @@ This tool simplifies project initialization, saving time and effort while ensuri
 - Generate React projects with support for TypeScript or JavaScript.
 - Create Django project boilerplates with pre-configured settings.
 - Build ReactDJ boilerplates for integrated React-Django workflows.
-- Add optional features such as state management, authentication, and Docker support.
 - Interactive CLI for seamless project setup.
 
 ---
@@ -32,8 +31,8 @@ Before using the Boilerplate Generator, ensure the following are installed:
 
 1. Clone this repository:
    ```bash
-   git clone <repository-url>
-   cd boilerplate-generator
+   git clone https://github.com/daniel-devi/DJREACT.git
+   cd DJREACT
    ```
 
 2. Install required Python dependencies:
@@ -55,16 +54,16 @@ The CLI provides commands to generate boilerplates for different use cases. Belo
 ### 1. Generate Frontend Boilerplate
 
 ```bash
-python cli.py createFrontend --name <project-name> --path <directory-path> --framework <JS/TS>
+python djreact createFrontend --name <project-name> --path <directory-path> --framework <JS/TS>
 ```
 - **Options:**
   - `--name`: Name of the project.
-  - `--path`: Directory path to create the project.
-  - `--framework`: Choose `JS` for JavaScript or `TS` for TypeScript.
+  - `--path`: Directory path to create the project. *Optional*
+  - `--framework`: Choose `JS` for JavaScript or `TS` for TypeScript. *Optional*
 
 **Example:**
 ```bash
-python cli.py createFrontend --name MyReactApp --path ./frontend --framework TS
+python djreact createFrontend --name MyReactApp --path ./frontend --framework TS
 ```
 
 ---
@@ -72,15 +71,15 @@ python cli.py createFrontend --name MyReactApp --path ./frontend --framework TS
 ### 2. Generate Backend Boilerplate
 
 ```bash
-python cli.py createBackend --name <project-name> --path <directory-path>
+python djreact createBackend --name <project-name> --path <directory-path>
 ```
 - **Options:**
-  - `--name`: Name of the Django project.
-  - `--path`: Directory path to create the project.
+  - `--name`: Name of the Django project. *Optional*
+  - `--path`: Directory path to create the project. *Optional*
 
 **Example:**
 ```bash
-python cli.py createBackend --name MyDjangoApp --path ./backend
+python djreact createBackend --name MyDjangoApp --path ./backend
 ```
 
 ---
@@ -88,16 +87,15 @@ python cli.py createBackend --name MyDjangoApp --path ./backend
 ### 3. Generate ReactDJ Boilerplate
 
 ```bash
-python cli.py createReactDJ --name <project-name> --path <directory-path> --framework <JS/TS>
+python djreact createReactDJ --name <project-name> --path <directory-path>
 ```
 - **Options:**
   - `--name`: Name of the full-stack project.
-  - `--path`: Directory path to create the project.
-  - `--framework`: Choose `JS` for JavaScript or `TS` for TypeScript.
+  - `--path`: Directory path to create the project. *Optional*
 
 **Example:**
 ```bash
-python cli.py createReactDJ --name MyFullStackApp --path ./fullstack --framework TS
+python djreact createReactDJ --name MyFullStackApp --path ./fullstack
 ```
 
 ---
@@ -108,16 +106,18 @@ Each generated project follows a standard structure for maintainability and scal
 
 ### Frontend Boilerplate:
 ```
-frontend/
-├── public/
-├── src/
-│   ├── components/
-│   ├── pages/
-│   ├── App.js
-│   ├── index.js
-├── .env
-├── package.json
-└── README.md
+    frontend/
+    ├── public/
+    ├── src/
+    │   ├── components/
+    │   ├── pages/
+    │   ├── App.js
+    │   ├── index.js
+    ├── .env
+    ├── package.json
+    └── README.md
+    |__ docs/
+    |__ README.md
 ```
 
 ### Backend Boilerplate:
@@ -128,6 +128,14 @@ backend/
 │   ├── urls.py
 │   ├── wsgi.py
 │   ├── asgi.py
+|__ apps/
+|   |__authentication/
+|       ....
+|   |__core/
+|       ...
+|__templates/
+|   |__base.html
+|__ docs/
 ├── manage.py
 ├── requirements.txt
 └── README.md
@@ -139,9 +147,11 @@ fullstack/
 ├── frontend/
 │   ├── public/
 │   ├── src/
+    |__ ...
 ├── backend/
 │   ├── <project-name>/
-├── docker-compose.yml
+|   |__ ...
+├── docs/
 └── README.md
 ```
 
