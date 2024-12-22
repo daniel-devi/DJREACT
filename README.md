@@ -40,9 +40,10 @@ Before using the Boilerplate Generator, ensure the following are installed:
    pip install -r requirements.txt
    ```
 
-3. (Optional) Set up the project as a global CLI tool:
+3. Set up the project as a global CLI tool:
    ```bash
-   python setup.py install
+   cd DJREACT
+   python pip install .
    ```
 
 ---
@@ -57,7 +58,7 @@ The CLI provides commands to generate boilerplates for different use cases. Belo
 python djreact createFrontend --name <project-name> --path <directory-path> --framework <JS/TS>
 ```
 - **Options:**
-  - `--name`: Name of the project.
+  - `--name`: Name of the project. 
   - `--path`: Directory path to create the project. *Optional*
   - `--framework`: Choose `JS` for JavaScript or `TS` for TypeScript. *Optional*
 
@@ -74,7 +75,7 @@ python djreact createFrontend --name MyReactApp --path ./frontend --framework TS
 python djreact createBackend --name <project-name> --path <directory-path>
 ```
 - **Options:**
-  - `--name`: Name of the Django project. *Optional*
+  - `--name`: Name of the Django project. 
   - `--path`: Directory path to create the project. *Optional*
 
 **Example:**
@@ -135,6 +136,14 @@ backend/
 |       ...
 |__templates/
 |   |__base.html
+|   |__core/
+|   |   |....
+|   |__authentication/
+|   |   |....
+|   |__static/
+|   |   |__css/
+|   |   |__js/
+|   |   |__img/
 |__ docs/
 ├── manage.py
 ├── requirements.txt

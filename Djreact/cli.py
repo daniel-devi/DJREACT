@@ -1,7 +1,7 @@
 import click
-from DJREACT.commands import backendGenerator as backend
-from DJREACT.commands import frontendGenerator as frontend
-from DJREACT.commands import fullstackGenerator as fullstack
+from Djreact.commands import backendGenerator as backend
+from Djreact.commands import frontendGenerator as frontend
+from Djreact.commands import fullstackGenerator as fullstack
 
 @click.group()
 def cli():

@@ -1,2 +1,2 @@
 [console_scripts]
-djreact = DJREACT.cli:cli
+djreact = Djreact.cli:cli

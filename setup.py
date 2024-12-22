@@ -2,8 +2,8 @@ from setuptools import setup, find_packages
 
 #TODO: EDIT
 setup(
-    name="DjReact",
-    version="1.0.0",
+    name="Djreact",
+    version="1.0.2",
     description="A CLI tool for generating Django and React boilerplate code, you can customize it to your needs",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
@@ -22,7 +22,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "djreact=DJREACT.cli:cli",
+            "djreact=Djreact.cli:cli",
         ],
     },
     classifiers=[

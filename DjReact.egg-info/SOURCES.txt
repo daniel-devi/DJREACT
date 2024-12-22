@@ -9,6 +9,12 @@ DjReact.egg-info/requires.txt
 DjReact.egg-info/top_level.txt
 Djreact/__init__.py
 Djreact/cli.py
+Djreact.egg-info/PKG-INFO
+Djreact.egg-info/SOURCES.txt
+Djreact.egg-info/dependency_links.txt
+Djreact.egg-info/entry_points.txt
+Djreact.egg-info/requires.txt
+Djreact.egg-info/top_level.txt
 Djreact/commands/__init__.py
 Djreact/commands/backendGenerator.py
 Djreact/commands/frontendGenerator.py
