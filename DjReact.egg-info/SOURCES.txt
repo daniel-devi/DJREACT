@@ -19,6 +19,17 @@ Djreact/commands/__init__.py
 Djreact/commands/backendGenerator.py
 Djreact/commands/frontendGenerator.py
 Djreact/commands/fullstackGenerator.py
+Djreact/templates/__init__.py
+Djreact/templates/Django/__init__.py
+Djreact/templates/Django/manage.py
+Djreact/templates/Django/Backend/__init__.py
+Djreact/templates/Django/Backend/asgi.py
+Djreact/templates/Django/Backend/settings.py
+Djreact/templates/Django/Backend/urls.py
+Djreact/templates/Django/Backend/wsgi.py
+Djreact/templates/ReactDJ/__init__.py
+Djreact/templates/ReactJS/__init__.py
+Djreact/templates/ReactTS/__init__.py
 Test/__init__.py
 Test/test_backend_generator.py
 test/test_backend_generator.py
