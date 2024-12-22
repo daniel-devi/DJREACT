@@ -6,7 +6,7 @@ from pathlib import Path
 
 # Base and templates directory paths
 BASE_DIR = Path(__file__).resolve().parent.parent
-TEMPLATES_DIR = BASE_DIR / "DJREACT/templates/Django"
+TEMPLATES_DIR = BASE_DIR / "templates/Django"
 
 def generate_backend(pName: str, pPath: str) -> None:
     """

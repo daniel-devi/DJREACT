@@ -2,3 +2,9 @@ include README.md
 include LICENSE
 include requirements.txt
 recursive-include DJREACT/templates *
+recursive-include DJREACT/templates/ Django *
+recursive-include DJREACT/templates/ Django/ apps/ *
+recursive-include DJREACT/templates/ ReactDJ/ Frontend/ src *
+recursive-include DJREACT/templates/ ReactDJ/ Backend/ apps *
+recursive-include DJREACT/templates/ ReactJS/ Frontend/ src *
+recursive-include DJREACT/templates/ ReactTS/ Frontend/ src *

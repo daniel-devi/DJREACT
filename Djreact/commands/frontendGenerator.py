@@ -56,6 +56,7 @@ def generate_frontend(pName: str, pPath: str, pFramework: str) -> None:
         new_project_name_path = project_path / pName
         os.rename(project_path / "Frontend", new_project_name_path)
 
+        # Success message
         click.echo(
             f"\nReact {pFramework} frontend boilerplate '{pName}' has been created at {project_path}"
             "\nTo install the required dependencies, run the following commands:"

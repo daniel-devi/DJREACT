@@ -6,7 +6,7 @@ from pathlib import Path
 
 # Resolve templates directory dynamically
 BASE_DIR = Path(__file__).resolve().parent.parent
-TEMPLATES_DIR = BASE_DIR / "DJREACT/templates/ReactDJ"
+TEMPLATES_DIR = BASE_DIR / "templates/ReactDJ"
 
 def generate_fullstack(pName: str, pPath: str) -> None:
     """

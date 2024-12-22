@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 #TODO: EDIT
 setup(
     name="Djreact",
-    version="1.0.10",
+    version="1.1.0",
     description="A CLI tool for generating Django and React boilerplate code, you can customize it to your needs",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
@@ -11,6 +11,7 @@ setup(
     author_email="devonaguh33@gmail.com",
     url="https://github.com/daniel-devi/DJREACT.git",
     packages=find_packages(),
+    package_data={"Djreact": ["templates/**/*"]},
     include_package_data=True,
     install_requires=[
         "click>=8.0.0",

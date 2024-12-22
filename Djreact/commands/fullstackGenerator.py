@@ -6,7 +6,7 @@ from pathlib import Path
 
 # Resolve templates directory dynamically
 BASE_DIR = Path(__file__).resolve().parent.parent
-TEMPLATES_DIR = BASE_DIR / "DJREACT/templates/ReactDJ"
+TEMPLATES_DIR = BASE_DIR / "templates/ReactDJ"
 
 def generate_fullstack(pName: str, pPath: str) -> None:
     """
@@ -55,7 +55,7 @@ def generate_fullstack(pName: str, pPath: str) -> None:
         # Success message
         click.echo(
             f"\nDjango React boilerplate - '{pName}' created at '{project_path}'.\n"
-            "Please install the required dependencies using:\n\n"
+            "Please install the backend dependencies using:\n\n"
             f"cd {project_path / 'Backend'}\n"
             "pip install -r requirements.txt\n\n"
             "Start the development server with 'python manage.py runserver'\n\n"

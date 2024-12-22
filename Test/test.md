@@ -1,0 +1,1 @@
+* *I couldn't write test for this and it work, but i manually tested it on the cmd and it work well and threw necessary errors*
