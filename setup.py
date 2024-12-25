@@ -3,9 +3,10 @@ from setuptools import setup, find_packages
 #TODO: EDIT
 setup(
     name="Djreact",
-    version="1.1.0",
+    version="1.2.1",
     description="A CLI tool for generating Django and React boilerplate code, you can customize it to your needs",
     long_description=open("README.md").read(),
+    license="MIT",
     long_description_content_type="text/markdown",
     author="Daniel Agufenwa",
     author_email="devonaguh33@gmail.com",

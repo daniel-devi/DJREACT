@@ -3,6 +3,7 @@ import click
 import shutil
 import secrets
 from pathlib import Path
+from .removeINITfile import remove_init_files
 
 # Resolve templates directory dynamically
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -13,7 +14,7 @@ def generate_fullstack(pName: str, pPath: str) -> None:
     Generate a Django React full-stack boilerplate project.
     """
     # Resolve the project path
-    project_path = Path(pPath).resolve()
+    project_path = Path(pPath or '.').resolve()
     template_path = TEMPLATES_DIR
 
     # Validate inputs
@@ -36,6 +37,10 @@ def generate_fullstack(pName: str, pPath: str) -> None:
         renamed_folder = project_path / "Backend" / pName
         if backend_folder.exists():
             os.rename(backend_folder, renamed_folder)
+
+        # Remove __init__.py files
+        frontend_path = project_path / "Frontend"
+        remove_init_files(frontend_path)
 
         # Generate a SECRET_KEY
         secret_key = secrets.token_urlsafe(50)

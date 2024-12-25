@@ -7,7 +7,6 @@ DjReact.egg-info/dependency_links.txt
 DjReact.egg-info/entry_points.txt
 DjReact.egg-info/requires.txt
 DjReact.egg-info/top_level.txt
-Djreact/__init__.py
 Djreact/cli.py
 Djreact.egg-info/PKG-INFO
 Djreact.egg-info/SOURCES.txt
@@ -19,7 +18,6 @@ Djreact/commands/__init__.py
 Djreact/commands/backendGenerator.py
 Djreact/commands/frontendGenerator.py
 Djreact/commands/fullstackGenerator.py
-Djreact/templates/__init__.py
 Djreact/templates/Django/__init__.py
 Djreact/templates/Django/manage.py
 Djreact/templates/Django/readme.md
@@ -189,5 +187,3 @@ Djreact/templates/ReactTS/Frontend/src/pages/HomePage.tsx
 Djreact/templates/ReactTS/Frontend/src/pages/index.ts
 Djreact/templates/ReactTS/Frontend/src/utils/index.ts
 Test/__init__.py
-Test/test_backend_generator.py
-test/test_backend_generator.py

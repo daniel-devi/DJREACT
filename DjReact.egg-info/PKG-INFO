@@ -1,10 +1,11 @@
 Metadata-Version: 2.1
 Name: Djreact
-Version: 1.1.0
+Version: 1.2.1
 Summary: A CLI tool for generating Django and React boilerplate code, you can customize it to your needs
 Home-page: https://github.com/daniel-devi/DJREACT.git
 Author: Daniel Agufenwa
 Author-email: devonaguh33@gmail.com
+License: MIT
 Classifier: Programming Language :: Python :: 3
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Operating System :: OS Independent
@@ -78,7 +79,7 @@ The CLI provides commands to generate boilerplates for different use cases. Belo
 python djreact createFrontend --name <project-name> --path <directory-path> --framework <JS/TS>
 ```
 - **Options:**
-  - `--name`: Name of the project. 
+  - `--name`: Name of the project.  *Optional*
   - `--path`: Directory path to create the project. *Optional*
   - `--framework`: Choose `JS` for JavaScript or `TS` for TypeScript. *Optional*
 
@@ -95,7 +96,7 @@ python djreact createFrontend --name MyReactApp --path ./frontend --framework TS
 python djreact createBackend --name <project-name> --path <directory-path>
 ```
 - **Options:**
-  - `--name`: Name of the Django project. 
+  - `--name`: Name of the Django project. *Optional*
   - `--path`: Directory path to create the project. *Optional*
 
 **Example:**
@@ -111,7 +112,7 @@ python djreact createBackend --name MyDjangoApp --path ./backend
 python djreact createReactDJ --name <project-name> --path <directory-path>
 ```
 - **Options:**
-  - `--name`: Name of the full-stack project.
+  - `--name`: Name of the full-stack project. *Optional*
   - `--path`: Directory path to create the project. *Optional*
 
 **Example:**

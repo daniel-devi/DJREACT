@@ -1,8 +1,8 @@
 import os
 import click
 import shutil
-import secrets
 from pathlib import Path
+from .removeINITfile import remove_init_file
 
 # Correctly resolve the base directory for templates
 TEMPLATE_BASE_DIR = Path(__file__).resolve().parent.parent / "templates"
@@ -56,6 +56,9 @@ def generate_frontend(pName: str, pPath: str, pFramework: str) -> None:
         new_project_name_path = project_path / pName
         os.rename(project_path / "Frontend", new_project_name_path)
 
+        # Remove the __init__.py file from the project directory
+        remove_init_file(new_project_name_path)
+        
         # Success message
         click.echo(
             f"\nReact {pFramework} frontend boilerplate '{pName}' has been created at {project_path}"

@@ -58,7 +58,7 @@ The CLI provides commands to generate boilerplates for different use cases. Belo
 python djreact createFrontend --name <project-name> --path <directory-path> --framework <JS/TS>
 ```
 - **Options:**
-  - `--name`: Name of the project. 
+  - `--name`: Name of the project.  *Optional*
   - `--path`: Directory path to create the project. *Optional*
   - `--framework`: Choose `JS` for JavaScript or `TS` for TypeScript. *Optional*
 
@@ -75,7 +75,7 @@ python djreact createFrontend --name MyReactApp --path ./frontend --framework TS
 python djreact createBackend --name <project-name> --path <directory-path>
 ```
 - **Options:**
-  - `--name`: Name of the Django project. 
+  - `--name`: Name of the Django project. *Optional*
   - `--path`: Directory path to create the project. *Optional*
 
 **Example:**
@@ -91,7 +91,7 @@ python djreact createBackend --name MyDjangoApp --path ./backend
 python djreact createReactDJ --name <project-name> --path <directory-path>
 ```
 - **Options:**
-  - `--name`: Name of the full-stack project.
+  - `--name`: Name of the full-stack project. *Optional*
   - `--path`: Directory path to create the project. *Optional*
 
 **Example:**
