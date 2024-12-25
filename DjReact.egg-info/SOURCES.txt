@@ -14,7 +14,7 @@ Djreact/commands/backendGenerator.py
 Djreact/commands/frontendGenerator.py
 Djreact/commands/fullstackGenerator.py
 Djreact/commands/removeINITfile.py
-Djreact/templates/Django/__init__.py
+Djreact/templates/__init__.py
 Djreact/templates/Django/manage.py
 Djreact/templates/Django/readme.md
 Djreact/templates/Django/requirements.txt
@@ -27,6 +27,7 @@ Djreact/templates/Django/Backend/__pycache__/__init__.cpython-312.pyc
 Djreact/templates/Django/Backend/__pycache__/settings.cpython-312.pyc
 Djreact/templates/Django/Backend/__pycache__/urls.cpython-312.pyc
 Djreact/templates/Django/Backend/__pycache__/wsgi.cpython-312.pyc
+Djreact/templates/Django/apps/__init__.py
 Djreact/templates/Django/apps/authentication/__init__.py
 Djreact/templates/Django/apps/authentication/admin.py
 Djreact/templates/Django/apps/authentication/apps.py
