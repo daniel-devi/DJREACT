@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 #TODO: EDIT
 setup(
     name="Djreact",
-    version="1.2.1",
+    version="1.2.4",
     description="A CLI tool for generating Django and React boilerplate code, you can customize it to your needs",
     long_description=open("README.md").read(),
     license="MIT",
@@ -32,5 +32,5 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    python_requires=">=3.7",
+    python_requires=">=3.10",
 )

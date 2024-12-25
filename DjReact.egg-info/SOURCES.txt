@@ -1,12 +1,7 @@
 LICENSE
 README.md
 setup.py
-DjReact.egg-info/PKG-INFO
-DjReact.egg-info/SOURCES.txt
-DjReact.egg-info/dependency_links.txt
-DjReact.egg-info/entry_points.txt
-DjReact.egg-info/requires.txt
-DjReact.egg-info/top_level.txt
+Djreact/__init__.py
 Djreact/cli.py
 Djreact.egg-info/PKG-INFO
 Djreact.egg-info/SOURCES.txt
@@ -18,6 +13,7 @@ Djreact/commands/__init__.py
 Djreact/commands/backendGenerator.py
 Djreact/commands/frontendGenerator.py
 Djreact/commands/fullstackGenerator.py
+Djreact/commands/removeINITfile.py
 Djreact/templates/Django/__init__.py
 Djreact/templates/Django/manage.py
 Djreact/templates/Django/readme.md
@@ -155,6 +151,7 @@ Djreact/templates/ReactJS/readme.md
 Djreact/templates/ReactJS/Frontend/README.md
 Djreact/templates/ReactJS/Frontend/eslint.config.js
 Djreact/templates/ReactJS/Frontend/index.html
+Djreact/templates/ReactJS/Frontend/jsconfig.json
 Djreact/templates/ReactJS/Frontend/package.json
 Djreact/templates/ReactJS/Frontend/postcss.config.js
 Djreact/templates/ReactJS/Frontend/tailwind.config.js

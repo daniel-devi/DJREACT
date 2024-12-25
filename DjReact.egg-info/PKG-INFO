@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: Djreact
-Version: 1.2.1
+Version: 1.2.3
 Summary: A CLI tool for generating Django and React boilerplate code, you can customize it to your needs
 Home-page: https://github.com/daniel-devi/DJREACT.git
 Author: Daniel Agufenwa
@@ -9,7 +9,7 @@ License: MIT
 Classifier: Programming Language :: Python :: 3
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Operating System :: OS Independent
-Requires-Python: >=3.7
+Requires-Python: >=3.10
 Description-Content-Type: text/markdown
 License-File: LICENSE
 Requires-Dist: click>=8.0.0

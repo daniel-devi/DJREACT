@@ -2,7 +2,7 @@ import os
 import click
 import shutil
 from pathlib import Path
-from .removeINITfile import remove_init_file
+from .removeINITfile import remove_init_files
 
 # Correctly resolve the base directory for templates
 TEMPLATE_BASE_DIR = Path(__file__).resolve().parent.parent / "templates"
@@ -57,7 +57,7 @@ def generate_frontend(pName: str, pPath: str, pFramework: str) -> None:
         os.rename(project_path / "Frontend", new_project_name_path)
 
         # Remove the __init__.py file from the project directory
-        remove_init_file(new_project_name_path)
+        remove_init_files(new_project_name_path)
         
         # Success message
         click.echo(
