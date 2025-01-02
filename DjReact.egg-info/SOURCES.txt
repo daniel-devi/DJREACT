@@ -138,8 +138,8 @@ Djreact/templates/ReactDJ/Frontend/src/vite-env.d.ts
 Djreact/templates/ReactDJ/Frontend/src/components/StatusChip.tsx
 Djreact/templates/ReactDJ/Frontend/src/components/AuthForms/RegisterForm.tsx
 Djreact/templates/ReactDJ/Frontend/src/css/index.css
-Djreact/templates/ReactDJ/Frontend/src/hooks/AuthenticatedAlready.ts
-Djreact/templates/ReactDJ/Frontend/src/hooks/ProtectedRoute.ts
+Djreact/templates/ReactDJ/Frontend/src/hooks/AuthenticatedAlready.tsx
+Djreact/templates/ReactDJ/Frontend/src/hooks/ProtectedRoute.tsx
 Djreact/templates/ReactDJ/Frontend/src/hooks/index.ts
 Djreact/templates/ReactDJ/Frontend/src/pages/Dashboard.tsx
 Djreact/templates/ReactDJ/Frontend/src/pages/HomePage.tsx

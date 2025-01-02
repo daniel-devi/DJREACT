@@ -21,7 +21,7 @@ def createBackend(name, path):
     backend.generate_backend(name, path)
 
 @cli.command()
-@click.option('-name', default='React Project', help='Project name')
+@click.option('-name', default='React Project-TS', help='Project name')
 @click.option('-path', default='React-Project', help='Destination path, leave empty for current directory')
 @click.option('-framework', default='TS', help='Frontend framework (JS/TS)', type=click.Choice(['JS', 'TS'], case_sensitive=False))
 def createFrontend(name, path, framework):
@@ -36,7 +36,7 @@ def createFrontend(name, path, framework):
 
 @cli.command()
 @click.option('-name',  default='ReactDJ Project', help='Project name')
-@click.option('-path', default='ReactDJ Project', help='Destination path')
+@click.option('-path', default='ReactDJ Project', help='Destination path ')
 def createFullstack(name, path):
     """Generate a full-stack boilerplate.
     
