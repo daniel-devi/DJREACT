@@ -33,8 +33,8 @@ def generate_fullstack(pName: str, pPath: str) -> None:
         shutil.copytree(template_path, project_path)
 
         # Rename the 'Backend' folder to the project name
-        backend_folder = project_path / "Backend" / "Backend"
-        renamed_folder = project_path / "Backend" / pName
+        backend_folder = project_path / "Backend"
+        renamed_folder = project_path / pName
         if backend_folder.exists():
             os.rename(backend_folder, renamed_folder)
 
@@ -53,7 +53,7 @@ def generate_fullstack(pName: str, pPath: str) -> None:
                 file.write(settings_content)
 
         # Create .env file
-        env_path = project_path / "Backend" / ".env"
+        env_path = project_path / pName / ".env"
         with open(env_path, 'w') as file:
             file.write(f"SECRET_KEY={secret_key}\n")
 

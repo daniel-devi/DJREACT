@@ -6,9 +6,10 @@ function Logout() {
 
     const handleLogout = () => {
         // Perform logout logic here
-        localStorage.removeItem("token");
-        localStorage.removeItem("UserId");
-        localStorage.removeItem("UserName");
+        localStorage.removeItem("TOKEN"); // JWT_TOKEN - For Authenticating User
+        localStorage.removeItem("REFRESH_TOKEN"); // REFRESH_TOKEN - For generating New JWT_TOKEN
+        localStorage.removeItem("ID"); // User ID
+        localStorage.removeItem("USER"); // User Username
         navigate("/login");
     };
 
@@ -22,7 +23,7 @@ function Logout() {
             width="100vw"
             sx={{ backgroundColor: "#f4f6f8" }}
         >
-          <Typography variant="h3" color="text.primary" gutterBottom>Stocker</Typography>
+            <Typography variant="h3" color="text.primary" gutterBottom>Stocker</Typography>
             <Paper
                 sx={{
                     padding: "20px 40px",
@@ -53,6 +54,15 @@ function Logout() {
                         sx={{ padding: "10px 20px" }}
                     >
                         Cancel
+                    </Button>
+                </Box>
+                <Box marginTop={2}>
+                    <Button
+                        variant="text"
+                        color="primary"
+                        onClick={() => navigate("/")}
+                    >
+                        Go to Homepage
                     </Button>
                 </Box>
             </Paper>

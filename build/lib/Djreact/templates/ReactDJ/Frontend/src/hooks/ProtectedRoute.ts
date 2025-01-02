@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 interface ProtectedRouteProps {
@@ -7,14 +7,55 @@ interface ProtectedRouteProps {
 
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
   const navigate = useNavigate();
-  const isAuthenticated = localStorage.getItem("token") !== null;
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(
+    localStorage.getItem("TOKEN") !== null
+  );
+  const [showWarning, setShowWarning] = useState<boolean>(false);
 
-  // Render children only if authenticated
-  if (!isAuthenticated) {
-    return navigate("/login");
+  useEffect(() => {
+    if (!isAuthenticated) {
+      setShowWarning(true);
+      setTimeout(() => {
+        navigate("/login");
+      }, 3000); // Redirect to login after 3 seconds
+    }
+  }, [isAuthenticated, navigate]);
+
+  if (!isAuthenticated && showWarning) {
+    return (
+      <div style={styles.container}>
+        <h2 style={styles.heading}>Access Denied</h2>
+        <p style={styles.text}>
+          You are not authenticated and hence not allowed to view this page.
+        </p>
+        <p style={styles.text}>Redirecting to the login page...</p>
+      </div>
+    );
   }
 
-  return { children };
+  return <>{children}</>;
+};
+
+// Inline CSS styles
+const styles = {
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    height: "100vh",
+    backgroundColor: "#f8d7da",
+    color: "#721c24",
+    textAlign: "center",
+  },
+  heading: {
+    fontSize: "2rem",
+    marginBottom: "1rem",
+  },
+  text: {
+    fontSize: "1.2rem",
+    maxWidth: "600px",
+  },
 };
 
 export default ProtectedRoute;

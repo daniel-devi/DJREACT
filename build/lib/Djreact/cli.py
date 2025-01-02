@@ -36,7 +36,7 @@ def createFrontend(name, path, framework):
 
 @cli.command()
 @click.option('-name',  default='ReactDJ Project', help='Project name')
-@click.option('-path', default='ReactDJ Project Backend', help='Destination path')
+@click.option('-path', default='ReactDJ Project', help='Destination path')
 def createFullstack(name, path):
     """Generate a full-stack boilerplate.
     

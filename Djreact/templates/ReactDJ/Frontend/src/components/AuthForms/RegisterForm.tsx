@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { TextField, Button, Typography, Box } from "@mui/material";
-import { validateEmail, validatePassword } from "@/utils/RegisterValidation";
+import { validateEmail, validatePassword } from "@/utils";
 import apiClient from "@/utils/apiClient";
 
 interface RegisterFormProps {
@@ -15,46 +15,44 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onSuccess }) => {
   const [generalError, setGeneralError] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  /**
-   * Check if an email exists in the database.
-   * @param {string} email The email address to check.
-   * @returns {Promise<boolean>} A boolean indicating if the email exists.
-   */
   const checkEmailExists = async (email: string): Promise<boolean> => {
-    const { data } = await apiClient.get<boolean>(`/auth/check-email?email=${email}`);
-    return data;
+    try {
+      const { data } = await apiClient.get<boolean>(`/auth/check-email?email=${email}`);
+      return data;
+    } catch (error) {
+      console.error("Error checking email existence", error);
+      return false;
+    }
   };
 
   const getAuthToken = async (username: string, password: string) => {
-    const response = await apiClient.post("token/", {
-      username,
-      password,
-    })
-    localStorage.setItem("TOKEN", response.data.access);
-    localStorage.setItem("REFRESH_TOKEN", response.data.refresh);
-  }
+    try {
+      const response = await apiClient.post("token/", { username, password });
+      localStorage.setItem("TOKEN", response.data.access);
+      localStorage.setItem("REFRESH_TOKEN", response.data.refresh);
+    } catch (error) {
+      console.error("Error fetching auth token", error);
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // Reset errors
     setEmailError("");
     setPasswordError("");
     setGeneralError("");
 
-    // Validate email
     if (!validateEmail(email)) {
       setEmailError("Invalid email address.");
       return;
     }
 
-    const emailExists: { exists: boolean } = await checkEmailExists(email);
-    if (emailExists.exists) {
+    const emailExists = await checkEmailExists(email);
+    if (emailExists) {
       setEmailError("Email already exists.");
       return;
     }
 
-    // Validate password
     const passwordValidation = validatePassword(password);
     if (!passwordValidation.valid) {
       setPasswordError(passwordValidation.error || "");
@@ -63,19 +61,11 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onSuccess }) => {
 
     setIsLoading(true);
     try {
-      const response = await apiClient.post("/auth/register/", {
-        email,
-        password,
-      });
-
-      // Success
-      onSuccess();
-
+      const response = await apiClient.post("/auth/register/", { email, password });
       localStorage.setItem("USER", response.data.username);
       localStorage.setItem("ID", response.data.id);
-      
-      // Get auth token
-      getAuthToken(response.data.username, password);
+      await getAuthToken(response.data.username, password);
+      onSuccess();
     } catch (error: any) {
       setGeneralError(error.response?.data?.message || "Registration failed.");
     } finally {

@@ -136,10 +136,12 @@ Djreact/templates/ReactDJ/Frontend/src/App.tsx
 Djreact/templates/ReactDJ/Frontend/src/main.tsx
 Djreact/templates/ReactDJ/Frontend/src/vite-env.d.ts
 Djreact/templates/ReactDJ/Frontend/src/components/StatusChip.tsx
-Djreact/templates/ReactDJ/Frontend/src/components/AuthForms/LoginForm.tsx
 Djreact/templates/ReactDJ/Frontend/src/components/AuthForms/RegisterForm.tsx
 Djreact/templates/ReactDJ/Frontend/src/css/index.css
+Djreact/templates/ReactDJ/Frontend/src/hooks/AuthenticatedAlready.ts
 Djreact/templates/ReactDJ/Frontend/src/hooks/ProtectedRoute.ts
+Djreact/templates/ReactDJ/Frontend/src/hooks/index.ts
+Djreact/templates/ReactDJ/Frontend/src/pages/Dashboard.tsx
 Djreact/templates/ReactDJ/Frontend/src/pages/HomePage.tsx
 Djreact/templates/ReactDJ/Frontend/src/pages/LoginPage.tsx
 Djreact/templates/ReactDJ/Frontend/src/pages/Logout.tsx
@@ -148,6 +150,7 @@ Djreact/templates/ReactDJ/Frontend/src/pages/RegisterPage.tsx
 Djreact/templates/ReactDJ/Frontend/src/pages/index.ts
 Djreact/templates/ReactDJ/Frontend/src/utils/RegisterValidation.ts
 Djreact/templates/ReactDJ/Frontend/src/utils/apiClient.ts
+Djreact/templates/ReactDJ/Frontend/src/utils/index.ts
 Djreact/templates/ReactJS/readme.md
 Djreact/templates/ReactJS/Frontend/README.md
 Djreact/templates/ReactJS/Frontend/eslint.config.js
@@ -163,6 +166,7 @@ Djreact/templates/ReactJS/Frontend/src/App.jsx
 Djreact/templates/ReactJS/Frontend/src/index.css
 Djreact/templates/ReactJS/Frontend/src/main.jsx
 Djreact/templates/ReactJS/Frontend/src/assets/react.svg
+Djreact/templates/ReactJS/Frontend/src/components/index.js
 Djreact/templates/ReactTS/readme.md
 Djreact/templates/ReactTS/Frontend/README.md
 Djreact/templates/ReactTS/Frontend/eslint.config.js
@@ -179,6 +183,7 @@ Djreact/templates/ReactTS/Frontend/src/App.tsx
 Djreact/templates/ReactTS/Frontend/src/main.tsx
 Djreact/templates/ReactTS/Frontend/src/vite-env.d.ts
 Djreact/templates/ReactTS/Frontend/src/assets/react.svg
+Djreact/templates/ReactTS/Frontend/src/components/index.ts
 Djreact/templates/ReactTS/Frontend/src/css/index.css
 Djreact/templates/ReactTS/Frontend/src/hooks/index.ts
 Djreact/templates/ReactTS/Frontend/src/pages/HomePage.tsx

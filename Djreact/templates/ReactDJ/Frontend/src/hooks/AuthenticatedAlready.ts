@@ -5,7 +5,7 @@ interface ProtectedRouteProps {
   children: React.ReactNode;
 }
 
-const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
+const NotAuthenticatedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
   const navigate = useNavigate();
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(
     localStorage.getItem("TOKEN") !== null
@@ -58,4 +58,4 @@ const styles = {
   },
 };
 
-export default ProtectedRoute;
+export default NotAuthenticatedRoute;
