@@ -64,7 +64,7 @@ python djreact createFrontend --name <project-name> --path <directory-path> --fr
 
 **Example:**
 ```bash
-python djreact createFrontend --name MyReactApp --path ./frontend --framework TS
+python djreact createFrontend --name MyReactApp --path frontend --framework TS
 ```
 
 ---
@@ -80,7 +80,7 @@ python djreact createBackend --name <project-name> --path <directory-path>
 
 **Example:**
 ```bash
-python djreact createBackend --name MyDjangoApp --path ./backend
+python djreact createBackend --name MyDjangoApp --path backend
 ```
 
 ---
@@ -96,7 +96,7 @@ python djreact createReactDJ --name <project-name> --path <directory-path>
 
 **Example:**
 ```bash
-python djreact createReactDJ --name MyFullStackApp --path ./fullstack
+python djreact createReactDJ --name MyFullStackApp --path fullstack
 ```
 
 ---

@@ -13,22 +13,22 @@ const NotAuthenticatedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
   const [showWarning, setShowWarning] = useState<boolean>(false);
 
   useEffect(() => {
-    if (!isAuthenticated) {
+    if (isAuthenticated) {
       setShowWarning(true);
       setTimeout(() => {
-        navigate("/login");
+        navigate("/");
       }, 3000); // Redirect to login after 3 seconds
     }
   }, [isAuthenticated, navigate]);
 
-  if (!isAuthenticated && showWarning) {
+  if (isAuthenticated && showWarning) {
     return (
       <div style={styles.container}>
         <h2 style={styles.heading}>Access Denied</h2>
         <p style={styles.text}>
-          You are not authenticated and hence not allowed to view this page.
+          You are authenticated and hence not allowed to view this page.
         </p>
-        <p style={styles.text}>Redirecting to the login page...</p>
+        <p style={styles.text}>Redirecting to the Home page...</p>
       </div>
     );
   }

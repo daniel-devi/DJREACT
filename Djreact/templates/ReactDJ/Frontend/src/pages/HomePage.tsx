@@ -8,6 +8,9 @@ const Home: React.FC = () => {
         <div style={styles.container}>
             <header style={styles.header}>
                 <h1 style={styles.heading}>Welcome, {username ? username : 'User'}!</h1>
+                {username ? (
+                    <Link to="/logout">Logout</Link>
+                ): ''}
             </header>
             <main style={styles.main}>
                 <p style={styles.text}>
@@ -17,7 +20,7 @@ const Home: React.FC = () => {
                     <Link to="/login" style={styles.button}>
                         Login
                     </Link>
-                    <Link to="/signup" style={styles.button}>
+                    <Link to="/register" style={styles.button}>
                         Sign Up
                     </Link>
                     <Link to="/dashboard" style={styles.button}>
