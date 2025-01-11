@@ -114,61 +114,22 @@ def generate_backend(pName: str, pPath: str) -> None:
 
     Parameters:
         pName (str): The name of the project. If an empty string is provided, 'Backend' is used as the default name.
-
         pPath (str): The path where the project will be created. Defaults to the current working directory if empty.
     """
-
     project_path = Path(pPath).resolve()
     template_path = TEMPLATES_DIR
-
-
-
 
     if not validate_paths(template_path, project_path):
         return
 
-
-
-
-
     click.echo(f"Creating Django backend project at {project_path}...")
 
     try:
-
-
-
-
-
-
-
-
-
-
-
         if not copy_template(template_path, project_path):
             return
             
         renamed_folder = rename_project_folder(project_path, pName)
         settings_path = renamed_folder / "settings.py"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         
         setup_project_secrets(project_path, settings_path)
         display_success_message(pName, project_path)

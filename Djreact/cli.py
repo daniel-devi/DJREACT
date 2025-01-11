@@ -16,7 +16,7 @@ def cli():
     pass
 @cli.command()
 @click.option('-name', default='Django-project Backend', help='Project name', type=str)
-@click.option('-path', default='Django', help='Destination path, leave empty for current directory')
+@click.option('-path', default='Django-Project', help='Destination path, leave empty for current directory')
 def create_backend(name: str, path: str):
     """Generate a Django backend boilerplate project.
     
