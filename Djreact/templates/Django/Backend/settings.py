@@ -55,6 +55,9 @@ INSTALLED_APPS = [
     'rest_framework', # REST Framework - Django REST Framework is a framework for building Web APIs
     'rest_framework_simplejwt', # Simple JSON Web Token - JWT authentication for Django REST Framework
     # add more apps here
+    'apps.authentication', # Authentication
+    'apps.core',    # Core
+    # Add django app in this format - '<app.appName>', 
 ]
 
 MIDDLEWARE = [
@@ -164,7 +167,7 @@ REDIS_PORT = 6379
 REDIS_DB = 0
 
 # Django Auth User Model
-AUTH_USER_MODEL = 'authentication.User'
+AUTH_USER_MODEL = 'app.authentication.User'
 
 # Django Rest Framework Settings
 REST_FRAMEWORK = {
