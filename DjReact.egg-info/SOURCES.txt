@@ -106,6 +106,7 @@ Djreact/templates/ReactDJ/Backend/apps/authentication/migrations/__pycache__/__i
 Djreact/templates/ReactDJ/Backend/apps/core/__init__.py
 Djreact/templates/ReactDJ/Backend/apps/core/admin.py
 Djreact/templates/ReactDJ/Backend/apps/core/apps.py
+Djreact/templates/ReactDJ/Backend/apps/core/filters.py
 Djreact/templates/ReactDJ/Backend/apps/core/models.py
 Djreact/templates/ReactDJ/Backend/apps/core/serialiser.py
 Djreact/templates/ReactDJ/Backend/apps/core/signals.py

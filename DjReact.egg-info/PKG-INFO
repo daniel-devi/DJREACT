@@ -1,6 +1,6 @@
-Metadata-Version: 2.1
+Metadata-Version: 2.2
 Name: Djreact
-Version: 1.2.15
+Version: 1.2.20
 Summary: A CLI tool for generating Django and React boilerplate code, you can customize it to your needs
 Home-page: https://github.com/daniel-devi/DJREACT.git
 Author: Daniel Agufenwa
@@ -18,6 +18,16 @@ Requires-Dist: jinja2>=3.0.0
 Requires-Dist: python-decouple>=3.7
 Requires-Dist: Django==4.2
 Requires-Dist: djangorestframework==3.14
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
 
 # Boilerplate Generator
 

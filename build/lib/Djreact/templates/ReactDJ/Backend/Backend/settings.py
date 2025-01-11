@@ -31,7 +31,8 @@ SECRET_KEY = config('SECRET_KEY', default="<GENERATE_SECRET_KEY>")
 DEBUG = config("DEBUG", default=False, cast=bool)
 
 #! SECURITY WARNING: don't run with allow all hosts in production!
-ALLOWED_HOSTS = [] # TODO: Change this to frontend url and dependencies url
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='').split(',') # TODO: add frontend url and dependencies url to the .env file - ALLOWED_HOSTS='<frontend_url>,<dependencies_url>'
+
 
 
 # Application definition
@@ -54,6 +55,7 @@ INSTALLED_APPS = [
     'corsheaders', # Cross-Origin Resource Sharing - Prevents CORS errors
     'rest_framework', # REST Framework - Django REST Framework is a framework for building Web APIs
     'rest_framework_simplejwt', # Simple JSON Web Token - JWT authentication for Django REST Framework
+    'django_filters', # Django-Filter - For creating filters in Django REST Framework
     # add more apps here
 ]
 
@@ -87,6 +89,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'Backend.wsgi.application'
+
+ASGI_APPLICATION = 'Backend.wsgi.application'
 
 
 # Database
@@ -164,17 +168,37 @@ REDIS_PORT = 6379
 REDIS_DB = 0
 
 # Django Auth User Model
-AUTH_USER_MODEL = 'authentication.User'
+AUTH_USER_MODEL = 'apps.authentication.User'
 
-# Django Rest Framework Settings
+# Django Rest Framework Settings - https://www.django-rest-framework.org/
 REST_FRAMEWORK = {
+    #? Django REST Framework Authentication settings
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
     ),
+    #? Django REST Framework Throttling settings
+    'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.AnonRateThrottle',
+        'rest_framework.throttling.UserRateThrottle'
+    ],
+    #? Django REST Framework Throttling rates
+    # For anonymous users - 100 requests per day, For authenticated users - 1000 requests per day
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': '100/day', 
+        'user': '1000/day'
+    },
+    #? Django REST Framework Django_Filter settings
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend'
+    ],
+
 }
+
+# Django Filters Settings
+
 
 # Django Simple JWT Settings
 SIMPLE_JWT = {
