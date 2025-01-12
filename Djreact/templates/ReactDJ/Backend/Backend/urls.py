@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView # Token Auth Views
-from core.views import home
+from apps.core.views import home
 
 '''
     Admin Panel Access Credentials
