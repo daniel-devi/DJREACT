@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'apps.authentication',
     'apps.core',
     #? The Django apps should be created in Apps folder and added in this format: apps.<app_name>
+    #TODO: Change the app name in the app.py file to apps.<app_name>
 
     # Third Party Apps
     'corsheaders', # Cross-Origin Resource Sharing - Prevents CORS errors
@@ -197,8 +198,6 @@ REST_FRAMEWORK = {
 
 }
 
-# Django Filters Settings
-
 
 # Django Simple JWT Settings
 SIMPLE_JWT = {
@@ -212,30 +211,80 @@ SIMPLE_JWT = {
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOWS_CREDENTIALS = True
 
-#? ----------------------------------------------------------------------------------------------------
-
-#?Jazzmin Configuration
-
-#? ----------------------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------------------
+# Jazzmin Configuration
+# ----------------------------------------------------------------------------------------------------
 
 # JAZZMIN DOCUMENTATION: https://jazzmin.django-extensions.dev/docs/settings/ for more settings
 
-# TODO: Change the settings below to your own settings
 JAZZMIN_SETTINGS = {
-    "site_title": "Backend",
-    "site_header": "Backend Admin Panel",
+    # Basic Settings
+    "site_title": "Backend Admin",
+    "site_header": "Backend Administration",
     "site_brand": "Backend",
-    "site_logo": "images/logo.png",
-    "site_icon": "images/logo.png",
+    "site_logo": "images/logo.png",  # Path to your logo in static files
+    "site_icon": "images/logo.png",  # Path to favicon in static files
     "welcome_sign": "Welcome to the Backend Admin Panel",
-    "copyright": "Backend",
-    "login_logo": "images/logo.png",
-    "login_logo_dark": "images/logo.png",
-    'theme': 'darkly',
-    "dark_mode": True,
+    "copyright": "© 2025 Backend Inc.",
+
+    # Login Page
+    "login_logo": "images/logo.png",  # Logo for light mode
+    "login_logo_dark": "images/logo_dark.png",  # Logo for dark mode
+
+    # Themes
+    "theme": "darkly",  # Available themes: 'flatly', 'darkly', 'cerulean', etc.
+    "dark_mode": True,  # Enables dark mode by default
+
+    # Top Menu
     "topmenu_links": [
         {"name": "Home", "url": "admin:index", "permissions": ["auth.view_user"]},
-        {"model": "auth.User"},
-        {"app": "account"},
+        {"model": "auth.User", "name": "Users"},  # Quick link to the Users model
+        {"app": "account"},  # Quick link to the account app
+        {"name": "Documentation", "url": "https://docs.myproject.com", "new_window": True},
     ],
+
+    # Side Menu
+    "custom_links": {
+        "account": [
+            {
+                "name": "Manage Profiles",
+                "url": "admin:account_profile_changelist",
+                "icon": "fas fa-user-cog",
+                "permissions": ["account.view_profile"],
+            },
+        ],
+    },
+    "icons": {
+        "auth": "fas fa-users-cog",
+        "auth.user": "fas fa-user",
+        "auth.Group": "fas fa-users",
+        "account": "fas fa-user-circle",
+    },
+    "order_with_respect_to": ["auth", "account", "core"],  # Customize app order in the sidebar
+
+    # Footer
+    "show_sidebar": True,  # Show or hide the sidebar
+    "navigation_expanded": True,  # Keep the navigation expanded by default
+    "show_ui_builder": True,  # Show UI Builder tool in the admin
+    "changeform_format": "horizontal_tabs",  # Use tabs for model change forms
+    "changeform_format_overrides": {
+        "auth.user": "collapsible",  # Collapsible sections for User model
+    },
+    "related_modal_active": True,  # Use modal popups for related fields
+}
+
+# Optional: Add custom style overrides using a CSS file
+JAZZMIN_UI_TWEAKS = {
+    "theme": "darkly",
+    "navbar": "navbar-dark bg-dark",
+    "sidebar": "sidebar-dark-primary",
+    "sidebar_nav_small_text": True,
+    "sidebar_disable_expand": False,
+    "brand_small_text": True,
+    "brand_colour": "navbar-dark bg-dark",
+    "accent": "accent-primary",
+    "button_classes": {
+        "primary": "btn-primary",
+        "secondary": "btn-outline-secondary",
+    },
 }

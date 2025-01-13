@@ -69,6 +69,7 @@ Djreact/templates/Django/apps/core/__pycache__/urls.cpython-312.pyc
 Djreact/templates/Django/apps/core/__pycache__/views.cpython-312.pyc
 Djreact/templates/Django/apps/core/migrations/__init__.py
 Djreact/templates/Django/apps/core/migrations/__pycache__/__init__.cpython-312.pyc
+Djreact/templates/Django/docs/doc.md
 Djreact/templates/Django/templates/base.html
 Djreact/templates/ReactDJ/readme.md
 Djreact/templates/ReactDJ/Backend/manage.py
@@ -152,6 +153,7 @@ Djreact/templates/ReactDJ/Frontend/src/pages/index.ts
 Djreact/templates/ReactDJ/Frontend/src/utils/RegisterValidation.ts
 Djreact/templates/ReactDJ/Frontend/src/utils/apiClient.ts
 Djreact/templates/ReactDJ/Frontend/src/utils/index.ts
+Djreact/templates/ReactDJ/docs/doc.md
 Djreact/templates/ReactJS/readme.md
 Djreact/templates/ReactJS/Frontend/README.md
 Djreact/templates/ReactJS/Frontend/eslint.config.js
@@ -168,6 +170,11 @@ Djreact/templates/ReactJS/Frontend/src/index.css
 Djreact/templates/ReactJS/Frontend/src/main.jsx
 Djreact/templates/ReactJS/Frontend/src/assets/react.svg
 Djreact/templates/ReactJS/Frontend/src/components/index.js
+Djreact/templates/ReactJS/Frontend/src/hooks/__init__.py
+Djreact/templates/ReactJS/Frontend/src/pages/__init__.py
+Djreact/templates/ReactJS/Frontend/src/utils/__init__.py
+Djreact/templates/ReactJS/docs/__init__.py
+Djreact/templates/ReactJS/docs/doc.md
 Djreact/templates/ReactTS/readme.md
 Djreact/templates/ReactTS/Frontend/README.md
 Djreact/templates/ReactTS/Frontend/eslint.config.js
@@ -190,4 +197,6 @@ Djreact/templates/ReactTS/Frontend/src/hooks/index.ts
 Djreact/templates/ReactTS/Frontend/src/pages/HomePage.tsx
 Djreact/templates/ReactTS/Frontend/src/pages/index.ts
 Djreact/templates/ReactTS/Frontend/src/utils/index.ts
+Djreact/templates/ReactTS/docs/__init__.py
+Djreact/templates/ReactTS/docs/doc.md
 Test/__init__.py

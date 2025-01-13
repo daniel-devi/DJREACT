@@ -8,9 +8,6 @@ from .models import User
 
 #? Custom User Admin
 
-#---- Define Actions for the CustomUserAdmin interface -----
-
-# ------ End of Actions -----
 
 class CustomUserAdmin(UserAdmin):
     # Fields to display in the list view

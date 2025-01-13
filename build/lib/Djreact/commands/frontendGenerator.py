@@ -1,4 +1,5 @@
 import os
+import json
 import click
 import shutil
 from pathlib import Path
@@ -6,7 +7,6 @@ from .removeINITfile import remove_init_files
 
 # Correctly resolve the base directory for templates
 TEMPLATE_BASE_DIR = Path(__file__).resolve().parent.parent / "templates"
-
 
 def validate_template_directory() -> bool:
     """
@@ -19,7 +19,6 @@ def validate_template_directory() -> bool:
         click.echo(f"Error: Template base directory does not exist at {TEMPLATE_BASE_DIR}")
         return False
     return True
-
 
 def validate_project_path(pPath: str, project_path: Path) -> bool:
     """
@@ -42,7 +41,6 @@ def validate_project_path(pPath: str, project_path: Path) -> bool:
         return False
     
     return True
-
 
 def setup_project_structure(pFramework: str, project_path: Path) -> bool:
     """
@@ -75,7 +73,6 @@ def setup_project_structure(pFramework: str, project_path: Path) -> bool:
         click.echo(f"Error: OS error. {e}")
     return False
 
-
 def rename_project_directory(project_path: Path, pName: str) -> Path:
     """
     Rename the default Frontend directory to the specified project name.
@@ -91,6 +88,35 @@ def rename_project_directory(project_path: Path, pName: str) -> Path:
     os.rename(project_path / "Frontend", new_project_name_path)
     return new_project_name_path
 
+def update_package_json_name(project_path: Path, pName: str) -> None:
+    """
+    Update the `name` field in the `package.json` file to match the project name.
+
+    Parameters:
+        project_path (Path): The project directory path
+        pName (str): The new project name
+
+    Returns:
+        None
+    """
+    package_json_path = project_path / "package.json"
+    if not package_json_path.exists():
+        click.echo(f"Warning: package.json not found in {project_path}. Skipping name update.")
+        click.echo("Please update the `name` field in package.json manually.")
+        return
+
+    try:
+        with open(package_json_path, "r") as file:
+            package_data = json.load(file)
+
+        package_data["name"] = pName
+
+        with open(package_json_path, "w") as file:
+            json.dump(package_data, file, indent=2)
+
+        click.echo(f"Updated `name` field in package.json to '{pName}'.")
+    except (json.JSONDecodeError, IOError) as e:
+        click.echo(f"Error updating package.json: {e}")
 
 def display_success_message(pFramework: str, pName: str, project_path: Path, new_project_name_path: Path) -> None:
     """
@@ -110,7 +136,6 @@ def display_success_message(pFramework: str, pName: str, project_path: Path, new
         "You can start the development server using:\n"
         "npm run dev\n"
     )
-
 
 def generate_frontend(pName: str, pPath: str, pFramework: str) -> None:
     """
@@ -137,6 +162,9 @@ def generate_frontend(pName: str, pPath: str, pFramework: str) -> None:
         return
 
     new_project_name_path = rename_project_directory(project_path, pName)
+
+    # Update the `name` field in package.json
+    update_package_json_name(new_project_name_path, pName)
     
     # Remove the __init__.py file from the project directory
     remove_init_files(new_project_name_path)

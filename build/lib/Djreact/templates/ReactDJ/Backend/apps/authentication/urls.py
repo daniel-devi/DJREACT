@@ -22,5 +22,6 @@ urlpatterns = [
 
     # Check Email API View - GET - /api/auth/check-email?email={email}
     path("check-email/", check_email_exists, name="check-email"),
+    
     #? Add more urls as needed
 ]
