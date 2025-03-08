@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useToast } from "@/components/ui/use-toast";
+import { toast } from "@/components/ui/sonner";
 import {
   Card,
   CardContent,
@@ -24,7 +24,6 @@ interface ApiStatus {
 const HomePage: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [apiStatus, setApiStatus] = useState<ApiStatus | null>(null);
-  const { toast } = useToast();
 
   useEffect(() => {
     // Simulating API call to Django backend
