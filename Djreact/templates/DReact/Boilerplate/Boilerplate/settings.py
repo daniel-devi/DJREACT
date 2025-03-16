@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY', default='django-insecure-j*+m6g*!yy7hl!xx&w7@g
 DEBUG = config('DEBUG', default=True, cast=bool)
 
 #! SECURITY WARNING: Don't allow all hosts in production
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='127.0.0.1, localhost', cast=str).split(',')
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='127.0.0.1, localhost:5173', cast=str).split(',')
 
 # -----------------------------------------------------------------------------------------
 #? APPLICATION CONFIGURATION
@@ -150,36 +150,160 @@ USE_TZ = True  # Enable timezone support
 
 # Static files management (e.g., CSS, JS)
 STATIC_URL = "/static/"
-STATICFILES_DIRS = [os.path.join(BASE_DIR,'static'),]  # Add any directories where static files are located
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATICFILES_DIRS = [BASE_DIR / 'static',] # Add any directories where static files are located
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Media files management (e.g., images, user-uploaded files)
-MEDIA_ROOT = 'media/'  # Folder to store media files on the server
-MEDIA_URL = os.path.join(BASE_DIR, "media/")  # URL to access media files
+MEDIA_ROOT = BASE_DIR / 'media'  # Folder to store media files on the server
+MEDIA_URL = "/media/" # URL to access media files
 
 # -----------------------------------------------------------------------------------------
 #? JAZZMIN CONFIGURATION (for Django Admin UI Customization)
 # -----------------------------------------------------------------------------------------
 
 JAZZMIN_SETTINGS = {
-    "site_title": "Admin Page",  # Title shown in the browser tab
-    "site_header": "Backend Administration",  # Header shown on the admin page
-    "site_brand": "Backend",  # Branding displayed at the top of the admin page
-    #"site_logo": "images/logo.png",  # Path to your logo (ensure it's stored in static files)
-    #"site_icon": "images/logo.png",  # Path to favicon
-    "welcome_sign": "Welcome to the Django Admin Panel",  # Custom welcome message
-    "copyright": "© 2025 Backend Inc.",  # Copyright footer text
-    # Customizations for the login page
-    #"login_logo": "images/logo.png",  # Logo for light mode
-    "login_logo_dark": "images/logo_dark.png",  # Logo for dark mode
-    # Theme and layout customizations
-    "theme": "darkly",  # Dark theme for the admin interface
-    "dark_mode": True,  # Enables dark mode by default
+    # Title of the window (Will default to current_admin_site.site_title if absent or None)
+    "site_title": "Djreact Admin",
+
+    # Title on the login screen (19 chars max) (defaults to current_admin_site.site_header if absent or None)
+    "site_header": "Djreact",
+
+    # Title on the brand (19 chars max) (defaults to current_admin_site.site_header if absent or None)
+    "site_brand": "Djreact",
+
+    # Logo to use for your site, must be present in static files, used for brand on top left
+    "site_logo": "djreact/img/logo.png",  # Replace this with your actual logo path
+
+    # Logo to use for your site, must be present in static files, used for login form logo (defaults to site_logo)
+    "login_logo": None,
+
+    # Logo to use for login form in dark themes (defaults to login_logo)
+    "login_logo_dark": None,
+
+    # CSS classes that are applied to the logo above
+    "site_logo_classes": "img-circle",
+
+    # Relative path to a favicon for your site, will default to site_logo if absent (ideally 32x32 px)
+    "site_icon": None,
+
+    # Welcome text on the login screen
+    "welcome_sign": "Welcome to Djreact Admin Panel",
+
+    # Copyright on the footer
+    "copyright": "Djreact Ltd",
+
+    # List of model admins to search from the search bar, search bar omitted if excluded
+    # If you want to use a single search field you don't need to use a list, you can use a simple string 
+    "search_model": ["auth.User", "auth.Group"],
+
+    # Field name on user model that contains avatar ImageField/URLField/Charfield or a callable that receives the user
+    "user_avatar": None,
+
+    ############
+    # Top Menu #
+    ############
+
+    # Links to put along the top menu
     "topmenu_links": [
-        {"name": "Home", "url": "admin:index", "permissions": ["auth.view_user"]},
-        {"name": "Documentation", "url": "https://docs.myproject.com", "new_window": True},
+
+        # Url that gets reversed (Permissions can be added)
+        {"name": "Home",  "url": "admin:index", "permissions": ["auth.view_user"]},
+
+        # external url that opens in a new window (Permissions can be added)
+        {"name": "Support", "url": "https://github.com/farridav/django-jazzmin/issues", "new_window": True},
+
+        # model admin to link to (Permissions checked against model)
+        {"model": "auth.User"},
+
+        # App with dropdown menu to all its models pages (Permissions checked against models)
+        {"app": "core"},
     ],
+
+    #############
+    # User Menu #
+    #############
+
+    # Additional links to include in the user menu on the top right ("app" url type is not allowed)
+    "usermenu_links": [
+        {"name": "Support", "url": "https://github.com/farridav/django-jazzmin/issues", "new_window": True},
+        {"model": "auth.user"}
+    ],
+
+    #############
+    # Side Menu #
+    #############
+
+    # Whether to display the side menu
+    "show_sidebar": True,
+
+    # Whether to aut expand the menu
+    "navigation_expanded": True,
+
+    # Hide these apps when generating side menu e.g (auth)
+    "hide_apps": [],
+
+    # Hide these models when generating side menu (e.g auth.user)
+    "hide_models": [],
+
+    # List of apps (and/or models) to base side menu ordering off of (does not need to contain all apps/models)
+    "order_with_respect_to": ["auth", "Accounts", "Core"],  # Replace with your actual model names
+
+    # Custom links to append to app groups, keyed on app name
+    "custom_links": {
+        "djreact": [{
+            "name": "Create Feedback", 
+            "url": "create_feedback",  # Replace with your actual URL
+            "icon": "fas fa-comments",
+            "permissions": ["djreact.view_model_name"]  # Replace with your actual permissions
+        }]
+    },
+
+    # Custom icons for side menu apps/models
+    "icons": {
+        "auth": "fas fa-users-cog",
+        "auth.user": "fas fa-user",
+        "auth.Group": "fas fa-users",
+    },
+
+    # Icons that are used when one is not manually specified
+    "default_icon_parents": "fas fa-chevron-circle-right",
+    "default_icon_children": "fas fa-circle",
+
+    #################
+    # Related Modal #
+    #################
+    # Use modals instead of popups
+    "related_modal_active": False,
+
+    #############
+    # UI Tweaks #
+    #############
+    # Relative paths to custom CSS/JS scripts (must be present in static files)
+    "custom_css": "djreact/css/custom.css",  # Path to custom CSS file
+    "custom_js": "djreact/js/custom.js",    # Path to custom JS file
+
+    # Whether to link font from fonts.googleapis.com (use custom_css to supply font otherwise)
+    "use_google_fonts_cdn": True,
+
+    # Whether to show the UI customizer on the sidebar
+    "show_ui_builder": False,
+
+    ###############
+    # Change view #
+    ###############
+    # Render out the change view as a single form, or in tabs, current options are
+    # - single
+    # - horizontal_tabs (default)
+    # - vertical_tabs
+    # - collapsible
+    # - carousel
+    "changeform_format": "horizontal_tabs",
+    
+    # override change forms on a per modeladmin basis
+    "changeform_format_overrides": {"auth.user": "collapsible", "auth.group": "vertical_tabs"},
+
 }
+
 
 # -----------------------------------------------------------------------------------------
 #? THIRD-PARTY CONFIGURATIONS
@@ -197,11 +321,20 @@ REDIS_HOST = config('REDIS_HOST', default='localhost')
 REDIS_PORT = config('REDIS_PORT', default=6379, cast=int)
 REDIS_DB = config('REDIS_DB', default=0, cast=int)
 
-# REST framework & JWT settings
+# REST_AUTH framework & JWT settings
 REST_USE_JWT = True
-REST_AUTH_SERIALIZERS = {
-    "USER_DETAILS_SERIALIZER": "accounts.serializers.CustomUserSerializer",
-}
+
+# Custom REST-AUTH SETTING
+
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None  
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_AUTHENTICATION_METHOD = 'email'  # Login with email
+ACCOUNT_EMAIL_VERIFICATION = "none"  # no verification step, emails are auto-verified
+ACCOUNT_EMAIL_REQUIRED = True 
+
+SITE_ID = 1
+
 
 # CORS (Cross-Origin Resource Sharing) settings to allow certain domains to access your APIs
 CORS_ALLOW_ALL_ORIGINS = True  # Allow all domains (change for security in production)
@@ -243,5 +376,3 @@ REST_FRAMEWORK = {
 # STRIPE CONFIG
 STRIPE_TEST_SECRET_KEY = config("STRIPE_TEST_SECRET_KEY", default='your_stripe_test_secret_key')
 STRIPE_TEST_PUBLISHABLE_KEY = config("STRIPE_TEST_PUBLISHABLE", default='your_stripe_test_publishable_key')
-
-import dj_rest_auth

@@ -15,9 +15,9 @@ class Feedback(models.Model):
     ]
     
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
-    feedback_type = models.CharField(max_length=20, choices=FEEDBACK_TYPE_CHOICES, default='other')
+    feedback_type = models.CharField(max_length=20, choices=FEEDBACK_TYPE_CHOICES, default='other', blank=True)
+    email = models.EmailField(blank=True, max_length=20, null=True)
     message = models.TextField()
-    rating = models.IntegerField(choices=[(i, i) for i in range(1, 6)], default=5)  # Rating scale from 1 to 5
     status = models.CharField(max_length=20, choices=[('pending', 'Pending'), ('resolved', 'Resolved')], default='pending')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

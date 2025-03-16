@@ -23,7 +23,9 @@ def get_packages():
             "Djreact.templates.ReactTS.*",
             "Djreact.templates.ReactJS.*",
             "Djreact.templates.Django.*",
-            "Djreact.templates.ReactDJ.*"
+            "Djreact.templates.ReactDJ.*",
+            "Djreact.templates.DReact.*",
+
         ],
         exclude=["tests"]
     )
@@ -57,7 +59,7 @@ def get_classifiers():
 
 setup(
     name="Djreact",
-    version="1.9.25",
+    version="2.0.1",
     description="A CLI tool for generating Django and React boilerplate code, you can customize it to your needs",
     long_description=get_long_description(),
     long_description_content_type="text/markdown",
@@ -76,4 +78,5 @@ setup(
     },
     classifiers=get_classifiers(),
     python_requires=">=3.10",
+    test_suite="Test",
 )

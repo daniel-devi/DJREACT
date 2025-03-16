@@ -35,4 +35,5 @@ urlpatterns = [
     path("api/accounts/", include("apps.accounts.urls")),  # User profile endpoints
     path("api/payments/", include("apps.payments.urls")),  # Payment endpoints
 ]
-
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

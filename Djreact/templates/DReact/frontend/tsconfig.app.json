@@ -8,11 +8,11 @@
     "skipLibCheck": true,
     "baseUrl": ".", // Base directory for relative paths (e.g., root of the project)
     "paths": {
-      "@components/*": ["./src/components/*"], // Custom path alias
-      "@utils/*": ["./src/utils/*"], 
-      "@pages/*": ["./src/page/*"],
-      "@css/*": ["./src/css/*"],
-      "@hooks/*": ["./src/hook/*"],
+      "@/components/*": ["./src/components/*"], // Custom path alias
+      "@/utils/*": ["./src/utils/*"], 
+      "@/pages/*": ["./src/page/*"],
+      "@/css/*": ["./src/css/*"],
+      "@/hooks/*": ["./src/hook/*"],
       "@/*" : ["./src/*"],
     },
     

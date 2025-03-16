@@ -1,12 +1,12 @@
 from django.db import models
 from django.contrib.auth import get_user_model
-from decouple import config
+from ...Boilerplate.settings import STRIPE_TEST_SECRET_KEY
 import stripe
 
 # Create models here.
 
 #TODO: Set up Stripe secret key
-stripe.api_key = config("STRIPE_API_KEY", default='your_stripe_test_secret_key')
+stripe.api_key = STRIPE_TEST_SECRET_KEY
 
 User = get_user_model()
 

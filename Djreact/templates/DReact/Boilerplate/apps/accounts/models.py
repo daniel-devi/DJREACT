@@ -1,6 +1,7 @@
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.db import models
-from uuid import uuid4
+import random
+import string
 
 # Custom manager for the user model
 class CustomUserManager(BaseUserManager):
@@ -25,9 +26,13 @@ def user_profile_picture_path(instance, filename):
     """Generate the path for storing profile pictures"""
     return f"profile_pictures/{instance.id}/{filename}"
 
+def generate_random_username(length=8):
+    letters = string.ascii_lowercase + string.digits
+    return 'User' + '-'.join(random.choice(letters) for _ in range(length))
+
 # Custom user model
 class User(AbstractBaseUser, PermissionsMixin):
-    username = models.CharField(max_length=50, unique=True, default=f"User{uuid4()}",)
+    username = models.CharField(max_length=50, unique=True, default=generate_random_username(8))
     email = models.EmailField(unique=True)
     first_name = models.CharField(max_length=30, blank=True, null=True)
     last_name = models.CharField(max_length=30, blank=True, null = True)
@@ -40,7 +45,9 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = CustomUserManager()
 
     USERNAME_FIELD = 'email'  # Use email as the unique identifier
-    #REQUIRED_FIELDS = ['first_name', 'last_name']  # Add additional required fields for user creation
+    REQUIRED_FIELDS = []
+
+    objects=CustomUserManager()
 
     def __str__(self):
         return self.email
